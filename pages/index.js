@@ -20,6 +20,7 @@ export default function Home() {
       );
       let data = await res.json();
       console.log(data);
+      setBlogs(data);
     }
     fetchadata();
   },[]);
@@ -30,8 +31,7 @@ export default function Home() {
    {blogs && blogs.length > 0 ? (
     blogs.map((blog) => {
       return (
-          <div className="w-[20rem] mx-auto" id={blog._id}>
-           
+          <div key={blog._id} className="w-[20rem] mx-auto" id={blog._id}>
              <Image unoptimized width={100} height={100} className="w-[20rem] h-[13rem] object-cover" src={blog.url} alt={blog.title}></Image>
             <h4 id={blog.catagorie} className="catagorie">
               {blog.catagorie}
