@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Install latest version of npm
+RUN npm install -g npm@9.6.5
+
 # Copy the rest of the application code to the container
 COPY . .
 
